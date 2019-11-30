@@ -46,6 +46,9 @@ class FileProcessor {
   onLine(line) {
     const firstWord = line.substr(0, 1);
 
+    // タイトルは無視(重複するので)
+    if (line.substr(0, 2) == "# ") return;
+
     // コードブロック内ではないとき(コードブロックの始まりを見つける)
     if (this.isCodeLine == false) {
 
