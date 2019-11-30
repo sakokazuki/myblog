@@ -2,7 +2,7 @@ module.exports = {
   articles: [
     {
       "id": "t0WcVHiB74zLSn9Hf8RrI", //ブログ技術記事
-      "date": "2019-11-3",
+      "date": "2019-11-31",
       "tags": [
         "Vue",
         "Javascript",
