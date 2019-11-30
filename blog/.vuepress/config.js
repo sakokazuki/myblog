@@ -1,6 +1,6 @@
 module.exports = {
   title: 'びわの家ブログ',
-  description: '',
+  description: 'びわの家から最新の技術情報をお届けするブログです。web技術やリアルタイム3D技術、その他雑記などを書いていきます。',
   host: 'localhost',
   port: '8282',
   theme: 'simple',
