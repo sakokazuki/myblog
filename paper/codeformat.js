@@ -67,8 +67,9 @@ class FileProcessor {
         // console.log(lang, ext);
         if (lang === undefined) lang = ext;
 
-        //コードブロック開始文字の挿入 ```javascript
-        this.readFile.output.write(`\n\n\`\`\`${lang}`);
+        //コードブロック開始文字の挿入 ````javascript
+        // `が4つなのはコードブロックの中にコードブロックを記入するケースの回避策
+        this.readFile.output.write(`\n\n\`\`\`\`${lang}`);
 
         // コード内フラグたてる
         this.isCodeLine = true;
@@ -87,7 +88,7 @@ class FileProcessor {
       // 最初の文字がある場合はコードおしまい
       if (isEnd == true) {
         // コードブロック終了文字の挿入
-        this.readFile.output.write(`\`\`\`\n\n${line}\n`);
+        this.readFile.output.write(`\`\`\`\`\n\n${line}\n`);
 
         // コード内フラグを戻す
         this.isCodeLine = false;
