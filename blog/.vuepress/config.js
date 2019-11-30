@@ -19,5 +19,10 @@ module.exports = {
     navbar: { // will display below the title
       // YOUR_SITE_NAME: '',
     }
+  },
+  locales: {
+    '/': {
+      lang: 'ja',
+    },
   }
 }
