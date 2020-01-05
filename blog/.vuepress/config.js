@@ -13,7 +13,7 @@ module.exports = {
   head: [
     ['script', { src: "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" }],
     ['link', { href: '/css/style.css', rel: 'stylesheet' }],
-    ['meta', { name="google-site-verification", content="TdVg3R0AA-BtTLkzGJ3FZxs6fS7R6FTMGoB0jvNYRJo" }],
+    ['meta', { name: "google-site-verification", content: "TdVg3R0AA-BtTLkzGJ3FZxs6fS7R6FTMGoB0jvNYRJo" }],
   ],
   themeConfig: {
     author: 'kazukisako', // will display on the page footer
