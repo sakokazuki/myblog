@@ -12,7 +12,8 @@ module.exports = {
   },
   head: [
     ['script', { src: "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" }],
-    ['link', { href: '/css/style.css', rel: 'stylesheet' }]
+    ['link', { href: '/css/style.css', rel: 'stylesheet' }],
+
   ],
   themeConfig: {
     author: 'kazukisako', // will display on the page footer
@@ -20,9 +21,19 @@ module.exports = {
       // YOUR_SITE_NAME: '',
     }
   },
+  plugins: [
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-69113686-2' // UA-00000000-0
+      }
+    ]
+  ],
   locales: {
     '/': {
       lang: 'ja',
     },
   }
 }
+
+
