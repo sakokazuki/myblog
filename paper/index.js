@@ -151,7 +151,7 @@ meta:
   - name: keywords
     content: ${keywords}
   - name: og:title
-    content: $${title}
+    content: ${title}
   - name: og:site_name
     content: びわの家ブログ
   - name: og:url
