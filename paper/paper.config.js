@@ -1,6 +1,14 @@
 module.exports = {
   articles: [
     {
+      "id": "PoHhelm6oS7ZgyOjxDnpv", //svg mask
+      "date": "2020-1-10",
+      "tags": [
+        "Javascript",
+        "Web",
+      ],
+    },
+    {
       "id": "t0WcVHiB74zLSn9Hf8RrI", //ブログ技術記事 
       "date": "2019-11-31",
       "tags": [
