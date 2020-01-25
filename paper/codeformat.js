@@ -7,6 +7,7 @@ class FileProcessor {
   constructor(filePath) {
     // init variables
     this.isCodeLine = false;
+    this.isYamlBlock = false;
     this.inputPath = filePath;
     this.fileDir = path.parse(filePath).dir;
     this.outputPath = path.join(this.fileDir, "output.md");
@@ -46,6 +47,17 @@ class FileProcessor {
   onLine(line) {
     const firstWord = line.substr(0, 1);
 
+    // ---はmd上部のyamlエリア、---の始まりでtrueにして終わりでfalseに戻る trueのときはリターン
+    const yamlBlock = (line.substr(0, 3) == "---") && (line.length == 3)
+    if (yamlBlock) {
+      this.isYamlBlock = !this.isYamlBlock;
+    }
+    if (this.isYamlBlock == true) {
+      this.readFile.output.write(`${line}\n`);
+      return;
+    }
+
+
     // タイトルは無視(重複するので)
     if (line.substr(0, 2) == "# ") return;
 
@@ -83,12 +95,17 @@ class FileProcessor {
       // 最初の文字がない、もしくはスペースの場合はまだコード内
       const isEmpty = !firstWord;
       const isSpace = (line.substr(0, 1) == " ");
-      const isEnd = !(isEmpty || isSpace);
+      const endTag = (line.substr(0, 3) == "</>");
+      const isEnd = (!(isEmpty || isSpace) || endTag);
 
       // 最初の文字がある場合はコードおしまい
       if (isEnd == true) {
         // コードブロック終了文字の挿入
-        this.readFile.output.write(`\`\`\`\`\n\n${line}\n`);
+        let insertLine = `\`\`\`\`\n\n${line}\n`
+        if (endTag) {
+          insertLine = `\`\`\`\`\n`
+        }
+        this.readFile.output.write(insertLine);
 
         // コード内フラグを戻す
         this.isCodeLine = false;

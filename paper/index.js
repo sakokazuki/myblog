@@ -4,6 +4,7 @@ const fsExtra = require('fs-extra');
 const path = require('path')
 const articles = require('./paper.config').articles
 const { promisify } = require('util')
+const marked = require("marked");
 
 /*---------------
   write file functions
@@ -67,6 +68,50 @@ http.interceptors.request.use((conf) => {
   return Promise.reject(error);
 });
 
+// マークダウンから画像ファイルを抽出する
+const findImageFromMd = (md) => {
+  const pattern = /\!\[\]\(.+?\)/g;
+  const result = md.match(pattern) ? md.match(pattern)[0] : "";
+  if (result) {
+    return result.slice(4).slice(0, -1);
+  }
+  return "";
+}
+
+
+const htmlEscapeToText = function (text) {
+  return text.replace(/\&\#[0-9]*;|&amp;/g, function (escapeCode) {
+    if (escapeCode.match(/amp/)) {
+      return '&';
+    }
+    return String.fromCharCode(escapeCode.match(/[0-9]+/));
+  });
+}
+
+const render_plain = function () {
+  var render = new marked.Renderer();
+
+  // render just the text of a link
+  render.link = function (href, title, text) {
+    return text;
+  };
+  // render just the text of a paragraph
+  render.paragraph = function (text) {
+    return htmlEscapeToText(text) + '\r\n';
+  };
+
+  // render just the text of a heading element, but indecate level
+  render.heading = function (text, level) {
+    return text;
+  };
+
+  // render nothing for images
+  render.image = function (href, title, text) {
+    return '';
+  };
+  return render;
+}
+
 /*---------------
   request
 -----------------*/
@@ -84,9 +129,34 @@ const request = async (article) => {
   // console.log(res)
   const title = JSON.parse(res.headers['dropbox-api-result']).title;
   const md = res.data;
+  // マークダウンから一番上の画像を取得してogimageに
+  const shareImage = findImageFromMd(md);
+  // マークダウンのテキストのみを抽出
+  const plainText = marked(md, {
+    renderer: render_plain()
+  });
+  // 改行されるまでをdescriptionとする
+  const description = plainText.split("\n")[0];
+  const keywords = article.tags.join(",");
+
   const filedata = `---
 title: ${title}
 date: ${article.date}
+meta:
+  - name: description
+    content: ${description}
+  - name: keywords
+    content: ${keywords}
+  - name: og:site_name
+    content: びわの家ブログ
+  - name: og:url
+    content: https://biwanoie.tokyo
+  - name: og:image
+    content: ${shareImage}
+  - name: og:locale
+    content: ja_JP
+  - name: twitter:card
+    content: summary_large_image
 ---
 ${md}`
   await updateFile(article.id, filedata);
