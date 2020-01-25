@@ -64,3 +64,4 @@ dist/
 blog/*
 !/blog/.vuepress/
 !/blog/index.md
+sitemap.xml

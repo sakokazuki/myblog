@@ -20,7 +20,8 @@
     "build": "yarn paper && vuepress build blog",
     "paper": "node paper/",
     "format_code": "node paper/codeformat.js",
-    "paper_dev": "yarn paper && yarn format_code"
+    "paper_dev": "yarn paper && yarn format_code",
+    "sitemap": "node paper/sitemap.js"
   },
   "author": "",
   "license": "MIT",

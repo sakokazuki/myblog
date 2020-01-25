@@ -47,6 +47,7 @@ const updateFile = async (id, data) => {
   await writeFile(file, data);
 }
 
+
 /*---------------
   request setting
 -----------------*/
@@ -111,6 +112,8 @@ const render_plain = function () {
   };
   return render;
 }
+
+
 
 /*---------------
   request
