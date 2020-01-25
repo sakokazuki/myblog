@@ -1,6 +1,26 @@
 module.exports = {
   articles: [
     {
+      "id": "C44SMJR1PQNT4ZzXiBcHq", //キャリブレーション
+      "date": "2020-1-25",
+      "tags": [
+        "C",
+        "AirBar",
+        "キャリブレーション",
+        "数学"
+      ],
+    },
+    {
+      "id": "Qfhhm9aJxKX3If2U6QjZ8", //ReCapthca
+      "date": "2020-1-25",
+      "tags": [
+        "Wordpress",
+        "Web",
+        "php",
+        "ReCAPTHCA"
+      ],
+    },
+    {
       "id": "h6EMaICNSywoDiLAereiz", //punipuni
       "date": "2020-1-25",
       "tags": [
