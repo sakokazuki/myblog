@@ -18,6 +18,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "yarn paper_dev && vuepress dev blog",
     "build": "yarn paper && vuepress build blog",
+    "build_only": " vuepress build blog",
     "paper": "node paper/",
     "format_code": "node paper/codeformat.js",
     "paper_dev": "yarn paper && yarn format_code",
