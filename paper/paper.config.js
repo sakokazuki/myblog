@@ -1,6 +1,14 @@
 module.exports = {
   articles: [
     {
+      "id": "MQOj1RgBOw88OAWXBcAma", //キャリブレーション
+      "date": "2020-1-26",
+      "tags": [
+        "DirectX12",
+        "GraphicsPrograming",
+      ],
+    },
+    {
       "id": "C44SMJR1PQNT4ZzXiBcHq", //キャリブレーション
       "date": "2020-1-25",
       "tags": [
