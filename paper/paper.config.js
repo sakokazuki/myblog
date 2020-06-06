@@ -1,6 +1,14 @@
 module.exports = {
   articles: [
     {
+      "id": "4mPEB8T3jBStYX8wdGmTV", //ShaderPlaygroundというサイトがすごい
+      "date": "2020-6-6",
+      "tags": [
+        "Shader",
+        "GraphicsPrograming",
+      ],
+    },
+    {
       "id": "CZPrFBcyBBce3FCXqKmVE", //プロジェクション行列のつくりかた
       "date": "2020-3-24",
       "tags": [
