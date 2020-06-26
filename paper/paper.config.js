@@ -1,6 +1,14 @@
 module.exports = {
   articles: [
     {
+      "id": "6XldlgYqLBmPaZntR0dWL", //webglの計測とか
+      "date": "2020-6-26",
+      "tags": [
+        "WebGL",
+        "Three.js",
+      ],
+    },
+    {
       "id": "4mPEB8T3jBStYX8wdGmTV", //ShaderPlaygroundというサイトがすごい
       "date": "2020-6-6",
       "tags": [
