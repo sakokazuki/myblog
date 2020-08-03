@@ -1,6 +1,14 @@
 module.exports = {
   articles: [
     {
+      "id": "AYyVPgla8l5dZp0m1JWmc", //DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
+      "date": "2020-8-3",
+      "tags": [
+        "DirectX12",
+        "GraphicsPrograming"
+      ],
+    },
+    {
       "id": "6XldlgYqLBmPaZntR0dWL", //webglの計測とか
       "date": "2020-6-26",
       "tags": [
