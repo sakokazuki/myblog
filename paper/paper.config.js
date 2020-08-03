@@ -1,8 +1,16 @@
 module.exports = {
   articles: [
     {
-      "id": "AYyVPgla8l5dZp0m1JWmc", //DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
+      "id": "b3OGpXtgzYipZujYYgHfg", //MetalのGPU処理負荷計測について(CPUについても軽く触れる)
       "date": "2020-8-3",
+      "tags": [
+        "Metal",
+        "GraphicsPrograming"
+      ],
+    },
+    {
+      "id": "AYyVPgla8l5dZp0m1JWmc", //DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
+      "date": "2020-8-2",
       "tags": [
         "DirectX12",
         "GraphicsPrograming"
