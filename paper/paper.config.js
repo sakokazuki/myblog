@@ -1,6 +1,15 @@
 module.exports = {
   articles: [
     {
+      "id": "VevBN3Vpvi5fkz2bG6k3c", //Direct3D 12のsample 「ExecuteIndirect」を読む
+      "date": "2020-8-8",
+      "tags": [
+        "DirectX",
+        "Direct3D12",
+        "GraphicsPrograming"
+      ],
+    },
+    {
       "id": "b3OGpXtgzYipZujYYgHfg", //MetalのGPU処理負荷計測について(CPUについても軽く触れる)
       "date": "2020-8-3",
       "tags": [
@@ -12,7 +21,8 @@ module.exports = {
       "id": "AYyVPgla8l5dZp0m1JWmc", //DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
       "date": "2020-8-2",
       "tags": [
-        "DirectX12",
+        "DirectX",
+        "Direct3D12",
         "GraphicsPrograming"
       ],
     },
@@ -36,7 +46,8 @@ module.exports = {
       "id": "CZPrFBcyBBce3FCXqKmVE", //プロジェクション行列のつくりかた
       "date": "2020-3-24",
       "tags": [
-        "DirectX12",
+        "DirectX",
+        "Direct3D12",
         "OpenGL",
         "GraphicsPrograming",
       ],
@@ -45,7 +56,8 @@ module.exports = {
       "id": "wzegC2tRANChpo8ZT6Jfe", //OpenGLでNearFarに-1を掛ける理由について考察
       "date": "2020-3-24",
       "tags": [
-        "DirectX12",
+        "DirectX",
+        "Direct3D12",
         "OpenGL",
         "GraphicsPrograming",
       ],
@@ -54,7 +66,8 @@ module.exports = {
       "id": "MQOj1RgBOw88OAWXBcAma", //Dx12 vol1
       "date": "2020-1-26",
       "tags": [
-        "DirectX12",
+        "DirectX",
+        "Direct3D12",
         "GraphicsPrograming",
       ],
     },
