@@ -1,11 +1,12 @@
 module.exports = {
   articles: [
     {
-      "id": "VevBN3Vpvi5fkz2bG6k3c", //Direct3D 12のsample 「ExecuteIndirect」を読む
+      "id": "VevBN3Vpvi5fkz2bG6k3c", //Direct3D 12のsample 「ExecuteIndirect」を読む 
       "date": "2020-8-8",
       "tags": [
         "DirectX",
         "Direct3D12",
+        "Execute Indirect",
         "GraphicsPrograming"
       ],
     },
