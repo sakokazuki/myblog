@@ -1,0 +1,359 @@
+---
+title: 今度こそ理解するプロジェクション変換行列のつくりかた
+date: 2020-3-24
+meta:
+  - name: description
+    content: 今度こそ理解するプロジェクション変換行列のつくりかたはじめに3Dグラフィックスプログラミングをするにあたり、Model/View/Projectionの行列を使用して様々な座標空間上で物事を考えることが求められます。その中でも特にProjection行列(記事内では射影行列とすることもある)の求め方が一番良くわからず理解に苦しんだので自分なりの理解の仕方をメモしておきます。
+  - name: keywords
+    content: DirectX,Direct3D12,OpenGL,GraphicsPrograming
+  - name: og:title
+    content: 今度こそ理解するプロジェクション変換行列のつくりかた
+  - name: og:site_name
+    content: びわの家ブログ
+  - name: og:url
+    content: https://biwanoie.tokyo
+  - name: og:image
+    content: https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870335094__01.jpg
+  - name: og:locale
+    content: ja_JP
+  - name: twitter:card
+    content: summary_large_image
+topics: [DirectX,Direct3D12,OpenGL,GraphicsPrograming] 
+type: tech
+emoji: 💛
+---
+
+## はじめに
+
+3Dグラフィックスプログラミングをするにあたり、Model/View/Projectionの行列を使用して様々な座標空間上で物事を考えることが求められます。その中でも特にProjection行列(記事内では射影行列とすることもある)の求め方が一番良くわからず理解に苦しんだので自分なりの理解の仕方をメモしておきます。
+
+混乱の元となるのが射影行列の作成には
+
+
+- 左手系座標系なのか右手座標系アプリケーションなのか
+    - マルチプラットフォームのアプリケーションの場合は右手左手の変換が必要なのか
+    - DirectXは左手
+    - OpenGLは右手
+    - Vulkanは右手
+- Zクリッピング空間は”0から1”なのか”-1から1”なのか
+    - XYのクリッピング空間は”-1から1”で共通
+    - DirectXは”0から1”
+    - OpenGLは”-1から1”
+    - Vulkanは”0から1”
+- 行列の記述が行優先(Row-Major)なのか列優先(Column-Major)なのか
+    - これは表記上の問題でしか無い
+
+という様々な前提条件があり解説サイトによってそのバリエーションが異なり一旦どれが正しいのかがわからなくなってしまうという問題を感じました。正確にはどの解説も正しいのですが…
+それならその前提条件を自分で定めた上で、計算によって射影行列を作ったほうが早いという考えに至り試行錯誤したメモを元にこの記事を書くことにしました。
+
+**対象読者は主に自分なので間違いを含んでいる可能性も十分にあります！！**
+
+これまでに挙げた前提条件を理解するにあたり参考になるサイトをいくつかまとめて次のセクションから実際に射影行列を作成してみようと思います。
+
+**【モデルビュープロジェクション行列について】
+*チュートリアル3：行列*
+http://www.opengl-tutorial.org/jp/beginners-tutorials/tutorial-3-matrices/
+
+【座標系について】
+*軸の話　〜3DCGにつきものの座標系の違い44種まとめ〜*
+https://note.com/it_ks/n/nb13311509f0a
+
+【行優先/列優先について】
+*Row-major orderとColumn-major order*
+https://qiita.com/niusounds/items/65099654673f5df3be9b
+
+
+
+## 本題
+
+**前提条件**
+これから考えていくプロジェクション行列の前提条件を以下を定めておきます。
+
+
+- OpenGLの右手系の座標
+- クリッピング空間はXYZ座標すべて”-1から1” ※OpenGLなので
+- 列優先表記
+
+ちなみにですが、OpenGLではどうやら左手座標に合わせてレンダリング結果を得ることが多いらしく、NearとFarに-1を掛けて逆転させた時のプロジェクション行列がスタンダードであるようなのですが混乱の元なので記事ではそのままにして説明します。すべて説明が終わったあと例題として逆転させた変換行列をつくってみます。今から説明することをある程度理解すればどんな状況下でも自分でプロジェクション行列を求めることができるようになると思います。
+
+**OverView**
+
+早速ですが以下のような図の状況を考えましょう。
+※この記事には手書き汚い図が多く出てきます。簡単に図がかけるツールをみつけたら清書するかもしれません…すみませんがお付き合いください。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870335094__01.jpg)
+
+
+
+- ①この視錐台(フラスタム/Frustum)内に三角形のある点をP(View座標)とおく
+- ②まずNear面に射影する行列を求めて(M2)
+- ③クリッピング空間内に射影する行列を求める(M3)
+
+また、記事内ではビュー空間のTop,Bottom,Right,Left,Near,FarをそれぞれT,B,R,L,N,Fとして表すことがあります。
+
+①から③の手順を踏むことによって-1から1の空間内にポリゴンを射影することを目標にします
+図にすると以下のような手順です。
+
+
+そして、Near面に射影された点PをP’、最終的に求めたい画面上の座標をP’’と置きます
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584792776654_texclip20200321211254.png)
+
+
+P→P’の変換をM1、P’→P’’の変換をM2とするとそれぞれ変換式は以下のように表すことができます
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584792933626_texclip20200321211438.png)
+
+
+
+ということは**②のM1と③のM2を求めることができればビュー空間内の座標Pをうまく描画先の座標に変換できそうです。**今後の解説で何をしているのかわからなくなった場合はなにをもとめたいのかを意識すると状況が整理できることがあります。
+
+**Near面からクリッピング空間内に射影する行列を求める**
+
+要するにM2を求めるということで、手順としては一番最後なのですがM1を求める手順が少し分かりづらいので先にM2からの解説となります。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870407162__02.jpg)
+
+
+M2は単純な計算でTop-Bottom,Right-Left,Near-Farの空間をそれぞれ-1-1の空間にマッピングします。
+x座標について考えると元々の空間の辺の長さがR-L、射影先の辺の長さが2なので元の座標P’xをR-Lで割ったあと2をかければ求まります。また、y座標z座標に関しても同様です。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584797467557_texclip20200321223104.png)
+
+
+
+これを行列で表すと以下のようになります。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584794828194_texclip20200321214705.png)
+
+
+
+こんなにも簡単にM2の変換行列が求まりました。
+
+**Near平面上に射影する行列を求める**
+
+さて、今度はM1を求めていきたいと思います。M1の、ビュー空間内の点PをNear面に射影してP’に変換するための行列は少し理解に時間がかかったのでできるだけゆっくり行きたいと思います。
+
+まずあたらめて現状と上からみた状況を下に図示します。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870587336__02.jpg)
+
+
+相似の関係から
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798169517_texclip20200321224245.png)
+
+
+と変形できるので、
+Px’ = Nx/Pzとして表すことができ、さらに横から見るとy座標についても同じなのでPy’=Ny/Pzとして表せます。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798194083_texclip20200321224307.png)
+
+
+今P’xとP’yを求めることができました。それではP’zはどうなるのでしょうか。
+
+これは少しむずかしいので一度最終的に得られるP’’zはどのような値であれば良いかを考えます。
+P’’zはレンダリングパイプライン内で前後関係の比較に使われる値でこれもxy座標どうように-1~1の値でGPUに渡してあげる必要があります。これをほんのり頭の中に入れておくだけでこの先の理解の手助けになるようなきが気がします。
+
+ではP’zを求める話しに戻ります。P’zはPzの値に反比例しているので
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798787841_texclip20200321225305.png)
+
+
+という一次関数の方程式に置き換えることができます。
+
+突然Pzに反比例していると言われるとどうして？と自分は感じましたが一度P'xy座標の変換式をみてみるとP’xy=Nxy/Pzとしてこれらもzに反比例しています。反比例していると言われると分かりづらいですが、遠くのものは小さくなる(zが大きくなるとxyは小さくなり絵も小さく描かれる)ということだけです。自分はこの理屈でそういうものとして理解しました。
+
+そこでP’z = a/Pz+ bに戻るとクリッピング後の値P’’zもP’zを-1~1の空間内にスケールしているのでP’z同様にPzに反比例しているのでスケールした値をkとすると
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798810678_texclip20200321225325.png)
+
+
+として一般化できます。
+
+
+kP’zはP’’zなので
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798826321_texclip20200321225342.png)
+
+
+とし、
+ak=A, bk=Bと置くと
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798848269_texclip20200321225404.png)
+
+
+と表します。
+
+扱う数値-1~1のほうがわかりやすいので今からはP’’z = A/Pz + Bの変換を考えます。
+Pz、P’z、P’’zといろいろ出てきて混乱するかもしれませんが順を追って理解しましょう。
+P’’z = A/Pz + Bはビュー空間のPzをそのまま-1~1に変換してP’’zを求める式です。
+
+今使える条件は
+
+
+- PzがNのとき、z’’が-1
+- PzがFのとき、z’’が1
+
+です。これはビュー空間の一番近いところが-1、一番遠いところが1と考えると自明ですね。
+よって
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798873729_texclip20200321225430.png)
+
+
+という連立方程式が成り立ちます。これを解くと
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584798917938_texclip20200321225514.png)
+
+
+と最終的に求めたいP’’zを表すことができます。
+そして、一番最初に説明したM1を求める手順によるとP’’z = 2/(F-N) * P’zなので、P’zについて解くと
+P’z = (F-N)/2 * P’’zより
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584799201518_texclip20200321225957.png)
+
+
+長くなりましたが、まとめると
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584799217037_texclip20200321230013.png)
+
+
+となり、行列で表すと以下のようになります。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584799612710_texclip20200321230649.png)
+
+
+非常に長くなりましたがこれでM1が求まりました。
+
+**突然出てくるw除算の話**
+
+さて、これまで長いことM1とM2の射影行列を求めてきて、あとはM1とM2を掛けてプロジェクション行列の完成！と思った皆様申し訳ありません。のこり2ステップあるんです。そのうちの1つとしてw除算という概念が今日のGPUには存在します。
+
+今までなんのコメントもせずに(x,y,z,w)の4次元で表記していたのには訳があり、GPUに与えた4次元の値はGPU内でw座標で割られるような仕様になっています。つまり(x/w, y/w, z/w, w/w)ということですね。**どうしてwで割られるかというとその方が都合がいいからです。**もっともらしい説明もいくつかのサイトでみた気がするのですがまだ自分の中で落とし込めていないのでこれはGPUの仕様として割り切りました。確かにこれから説明することを考えるとwで除算したほうが式がきれいになります。
+
+というわけでwの値をどうするかを検討しなければいけません。
+そこでもう一度P→P’の変換の式を眺めてみると、各座標それぞれある値で割っていることに気が付きます。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584799217037_texclip20200321230013.png)
+
+
+そう”Pz”ですPzでの除算は最終的にGPUがやってくれるので計算を省略してしまいます。そうすると以下のように式と行列で表せます。
+
+
+確かにM1の変換行列がきれいになった気がしますよね。
+ここまででやっと本当のM1を求めることができました。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584802757755_texclip20200321235913.png)
+
+
+おさらいをすると以下のようになっています。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584802775985_texclip20200321235931.png)
+
+
+**最後の砦、せん断行列**
+
+先程あと2ステップ説明することがあると書きました。そのうちの1つがw除算でもう1つがせん断行列です。せん断行列とは何かというと、一番最初に出した視錐台のLR、TBは左右対称という前提の話でしたが、左右非対称になっているケースがあります。
+**FOVから求める方法(左右対称が保証されている)もあるのでたまにここの変換は省略したものをプロジェクション行列として表記しているときもあります。**
+
+図のように中心から非対称になっている図形を対称にになるように歪ませたい。それをせん断と呼びます。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870652156__04.jpg)
+
+
+ではせん断の変換行列を求めたいと思います。まずXZ平面について考えると以下のようになります。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870714931__05.jpg)
+
+
+図から
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870918168_texclip20200322185512.png)
+
+
+が求まります
+
+長さx分だけ中心方向に歪むのでマイナス1をかけて
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870967440_texclip20200322185601.png)
+
+
+YZ平面に関しても同様に
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584871016581_texclip20200322185654.png)
+
+
+となります。せん断行列のXZ平面、YZ平面を考慮すると以下のような行列で表すことができます。M1、M2と同様にM0と置くと
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584871372373_texclip20200322190248.png)
+
+
+となります
+
+**プロジェクション行列を求める**
+
+これまで長い間ステップバイステップでM0、M1、M2を求めてきました。最後にそれらを掛け算した値がプロジェクション行列ということになります。順序は以下になります。
+
+
+1. M0で左右上下対称な視錐台をつくる
+2. M1でNear面への射影する
+3. M2でクリッピング空間へ射影する
+
+そうすると
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584872392245_texclip20200322191941.png)
+
+
+となり、あとは地道に計算をすると求まるパースペクティブ行列は以下のようになります。
+
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584872592502_texclip20200322192256.png)
+
+## 例題
+
+これまで言ってきたことが体系的に理解できているかを確かめるため手短に実際にOpenGLでよく使われる条件でのNearとFarを逆転させたプロジェクション行列を求めていみたいと思います。これは、頻繁に使用されるglmというmathライブラリの便利関数であるglm::frustumの値と同じになるはずです。
+
+この記事を最後まで読むような人は自分くらいかなと思うので計算は画像を載せるということで文章にしたり数式画像を作る手間を省略します。。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584877332437_gln_1.jpg)
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584877398281_gln_2.jpg)
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584877370160_gln_3.jpg)
+
+
+
+最終的に以下のような行列になり、glm::frustumと一致することがわかりました。
+
+![](https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584876561908_texclip20200322202917.png)
+
+
+
+*glm::frustum*
+https://github.com/g-truc/glm/blob/0.9.5/glm/gtc/matrix_transform.inl#L186
+
+## おわりに
+
+お疲れさまでした。ここまで細かいステップで説明をすればなんとなく納得がいくのではないでしょうか。また他の参考サイトを見たりすると別のアプローチで求めていたり(その方が計算が短かったり)しますが、自分にとって一番理解しやすい方法がこれだっただけです。
+
+この方法であればDirectXになってもVulkanになってもプロジェクション行列が求まると思いますので自分では後々参考にしていこうかなと思います。
+
+最後に、DirectXのプロジェクション行列の答えが載っているリンクだけメモ代わりに書いておきたいと思います。
+
+左手系(DirectXそのまま)
+https://docs.microsoft.com/ja-jp/windows/win32/direct3d9/d3dxmatrixperspectiveoffcenterlh
+右手系(座標系の変換をする)
+https://docs.microsoft.com/ja-jp/windows/win32/direct3d9/d3dxmatrixperspectiveoffcenterrh
+

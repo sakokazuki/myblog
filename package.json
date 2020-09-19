@@ -6,7 +6,9 @@
     "mixin-deep": "^2.0.1",
     "set-value": "^2.0.1",
     "vuepress": "^1.2.0",
-    "vuepress-theme-simple": "^0.7.0"
+    "vuepress-theme-simple": "^0.7.0",
+    "zenn": "^0.9.14",
+    "zenn-cli": "^0.1.26"
   },
   "name": "blog",
   "version": "1.0.0",
@@ -16,13 +18,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "yarn paper_dev && vuepress dev blog",
-    "build": "yarn paper && vuepress build blog",
+    "dev": "npm run paper_dev && vuepress dev blog",
+    "build": "npm run paper && vuepress build blog",
     "build_only": " vuepress build blog",
     "paper": "node paper/",
     "format_code": "node paper/codeformat.js",
-    "paper_dev": "yarn paper && yarn format_code",
-    "sitemap": "node paper/sitemap.js"
+    "paper_dev": "npm run paper && npm run format_code",
+    "sitemap": "node paper/sitemap.js",
+    "echo": "echo hoge"
   },
   "author": "",
   "license": "MIT",

@@ -47,6 +47,23 @@ const updateFile = async (id, data) => {
   await writeFile(file, data);
 }
 
+const updateZennFile = async(id, data)=>{
+  const dir = path.join(__dirname, "../zenn/articles");
+  
+  const isExistsDir = await isExists(dir).catch(err => {
+    throw err;
+  });
+  
+  if (!isExistsDir) {
+    return;
+  }
+
+  //ファイル書き込み
+  // 12文字以上のslug
+  const fileName = id.substr(0, 12).toLowerCase()+".md";
+  const file = path.join(dir, fileName);
+  await writeFile(file, data);
+}
 
 /*---------------
   request setting
@@ -141,6 +158,11 @@ const request = async (article) => {
   // 改行されるまでをdescriptionとする
   const description = plainText.split("\n")[0];
   const keywords = article.tags.join(",");
+  
+  // for zenn
+  const zennTopics = article.tags;
+  const zennType = (article.type == "idea") ? "idea" : "tech" // デフォルトでtech zennTypeにideaを指定したときのみidea
+  const zennEmoji = "💛"
 
   const filedata = `---
 title: ${title}
@@ -162,26 +184,34 @@ meta:
     content: ja_JP
   - name: twitter:card
     content: summary_large_image
+topics: [${zennTopics}] 
+type: ${zennType}
+emoji: ${zennEmoji}
 ---
 ${md}`
   await updateFile(article.id, filedata);
+  await updateZennFile(article.id, filedata);
   article.title = title;
   return article
 }
 
-const matchFile = async () => {
+const matchFile = async (match_str) => {
   return new Promise((resolve) => {
-    const match = path.join(__dirname, "../blog/*");
+    const match = path.join(__dirname, match_str);
     require("glob").glob(match, (er, files) => {
       resolve(files);
     });
   })
 }
+
 const clean = async () => {
   //"blog/"以下のファイルを列挙(.vuepressはドットファイルだから？無視されてる)"
-  const files = await matchFile();
+  const files = await matchFile("../blog/*");
+  const zennFiles = await matchFile("../zenn/articles/*.*");
+  const deleteTarget = files.concat(zennFiles);
+  
   //"index.md"以外は削除
-  await Promise.all(files.map(async (file) => {
+  await Promise.all(deleteTarget.map(async (file) => {
     if (file.indexOf('index.md') < 0) {
       await promisify(fsExtra.remove)(file)
     }
@@ -195,7 +225,6 @@ const clean = async () => {
 (async () => {
   //or
   await clean();
-
 
   await Promise.all(articles.map(async (article) => {
     await request(article);

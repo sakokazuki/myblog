@@ -10,7 +10,8 @@ class FileProcessor {
     this.isYamlBlock = false;
     this.inputPath = filePath;
     this.fileDir = path.parse(filePath).dir;
-    this.outputPath = path.join(this.fileDir, "output.md");
+    // console.log(path.basename(filePath));
+    this.outputPath = path.join(this.fileDir, "output"+path.basename(filePath));
 
     // prism.js lang formats (拡張子と一致しないもののみ)
     this.constPrismExts = {
@@ -24,7 +25,8 @@ class FileProcessor {
       'h': 'c',
       'hpp': 'cpp',
       'tex': 'latex',
-      'style': 'styl'
+      'style': 'css',
+      'styl': 'css'
     };
 
 
@@ -172,36 +174,71 @@ class FileProcessor {
 
 }
 
-
-// ref https://qiita.com/amay077/items/cc6ee3e66040a5097230
-const walk = (p, cb, errCb) => {
-
-  fs.readdir(p, (err, files) => {
-    if (err) {
-      errCb(err);
-      return;
-    }
-
-    files.forEach((f) => {
-      const fp = path.join(p, f); // to full-path
-      if (fs.statSync(fp).isDirectory()) {
-        walk(fp, cb); // ディレクトリなら再帰
-      } else {
-        cb(fp); // ファイルならコールバックで通知
+/**
+ * 指定したフォルダ配下のファイルのパスを取得 (同期版)
+ * 
+ * @param  {String} dir - このパスの配下を検索
+ * @param  {String|Array<String>} suffix - (option) ファイル名のサフィックス(拡張子とかを想定)
+ * @return {Array<String>} ヒットしたファイルのフルパスの一覧
+ */
+function walkSync(dir, suffix) {
+  let results = [];
+  let list = fs.readdirSync(dir);
+  list.forEach(function(file) {
+    file = path.resolve(dir, file);
+    let stat = fs.statSync(file);
+    if (stat && stat.isDirectory()) {
+      /* Recurse into a subdirectory */
+      results = results.concat(walkSync(file, suffix));
+    } else {
+      // NOTE: append files with specified suffix:
+      if (!suffix || suffix.length <= 0 || _hasSuffix(file, suffix)) {
+        results.push(file);
       }
-    });
+    }
   });
-};
+  return results;
 
-// マークダウンファイルを検索
-walk(path.join(".", "blog"), (file) => {
-  const ext = path.extname(file);
-  if (ext == '.md') {
-    const fp = new FileProcessor(file);
-    fp.do();
+  function _hasSuffix(filename, list) {
+    if (typeof list === "string") {
+      return filename.endsWith(list);
+    } else if (Array.isArray(list)) {
+      for (let len = list.length, i = 0; i < len; i++) {
+        const suffix = list[i];
+        if (filename.endsWith(suffix)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+}
+
+
+(async ()=>{
+  const blogPath = path.join(".", "blog");
+  const blogFiles = walkSync(blogPath);
+  for await (const file of blogFiles){
+    const ext = path.extname(file);
+    if(ext == ".md"){
+      const fp = new FileProcessor(file);
+      console.log(file)
+      await fp.do();
+    }
   }
 
-}, (err) => {
-  throw err;
-})
+  const zennPath = path.join(".", "zenn", "articles");
+  const zennFiles = walkSync(zennPath);
+  let filst = false
+  for await (const file of zennFiles){
+    const ext = path.extname(file);
+    if(ext == ".md" && filst == false){
+      // filst = true;
+      const fp = new FileProcessor(file);
+      console.log(file)
+      await fp.do();
+    }
+  }
 
+  
+})();
