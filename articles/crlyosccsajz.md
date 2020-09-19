@@ -1,23 +1,5 @@
 ---
 title: サーバーへのファイルアップロードコマンド
-date: 2019-11-28
-meta:
-  - name: description
-    content: サーバーへのファイルアップロードコマンド概要仕事でweb制作をするとファイルアップロード=&gt;チーム確認のフローが増える。
-  - name: keywords
-    content: Web
-  - name: og:title
-    content: サーバーへのファイルアップロードコマンド
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Web] 
 type: tech
 emoji: 💛

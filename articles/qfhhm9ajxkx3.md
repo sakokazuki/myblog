@@ -1,23 +1,5 @@
 ---
 title: reCAPTCHA認証をやってみる
-date: 2020-1-25
-meta:
-  - name: description
-    content: reCAPTCHA認証をやってみるreCPATHCA認証は2020年1月現在v3という、ユーザーのチェックが不要のシステムがあり、これはGoogleが自動でbot入力かどうか判別してくれるというもの。
-  - name: keywords
-    content: Wordpress,Web,php,ReCAPTHCA
-  - name: og:title
-    content: reCAPTCHA認証をやってみる
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Wordpress,Web,php,ReCAPTHCA] 
 type: tech
 emoji: 💛

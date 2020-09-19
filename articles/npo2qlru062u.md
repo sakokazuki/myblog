@@ -1,23 +1,5 @@
 ---
 title: サーバーでアプリケーションをデーモン化する知見
-date: 2019-11-28
-meta:
-  - name: description
-    content: サーバーでアプリケーションをデーモン化する知見supervisorつかういろいろやったんだけど
-  - name: keywords
-    content: web,programming
-  - name: og:title
-    content: サーバーでアプリケーションをデーモン化する知見
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [web,programming] 
 type: tech
 emoji: 💛

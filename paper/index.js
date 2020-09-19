@@ -148,6 +148,17 @@ const request = async (article) => {
     })
   // console.log(res)
   const title = JSON.parse(res.headers['dropbox-api-result']).title;
+  article.title = title;
+  const blogMarkdownData = createMarkDownForBlog(article, res);
+  const zennMarkdownData = createMarkDownForZenn(article, res);
+
+
+  await updateFile(article.id, blogMarkdownData);
+  await updateZennFile(article.id, zennMarkdownData);
+  return article
+}
+
+const createMarkDownForBlog = (article, res)=>{
   const md = res.data;
   // マークダウンから一番上の画像を取得してogimageに
   const shareImage = findImageFromMd(md);
@@ -159,15 +170,8 @@ const request = async (article) => {
   const description = plainText.split("\n")[0];
   const keywords = article.tags.join(",");
   
-  // for zenn
-  const zennTopics = article.tags;
-  const zennType = (article.type == "idea") ? "idea" : "tech" // デフォルトでtech zennTypeにideaを指定したときのみidea
-  const zennEmoji = "💛"
-  const zennPublish = (article.zenn == false) ? false : true // zennで公開するかしないか 
-  console.log(article.zenn)
-
-  const filedata = `---
-title: ${title}
+  return `---
+title: ${article.title}
 date: ${article.date}
 meta:
   - name: description
@@ -175,7 +179,7 @@ meta:
   - name: keywords
     content: ${keywords}
   - name: og:title
-    content: ${title}
+    content: ${article.title}
   - name: og:site_name
     content: びわの家ブログ
   - name: og:url
@@ -186,16 +190,26 @@ meta:
     content: ja_JP
   - name: twitter:card
     content: summary_large_image
+---
+${md}`
+}
+
+const createMarkDownForZenn = (article, res)=>{
+  const md = res.data;
+  // for zenn
+  const zennTopics = article.tags;
+  const zennType = (article.type == "idea") ? "idea" : "tech" // デフォルトでtech zennTypeにideaを指定したときのみidea
+  const zennEmoji = "💛"
+  const zennPublish = (article.zenn == false) ? false : true // zennで公開するかしないか 
+
+  return `---
+title: ${article.title}
 topics: [${zennTopics}] 
 type: ${zennType}
 emoji: ${zennEmoji}
 published: ${zennPublish}
 ---
 ${md}`
-  await updateFile(article.id, filedata);
-  await updateZennFile(article.id, filedata);
-  article.title = title;
-  return article
 }
 
 const matchFile = async (match_str) => {

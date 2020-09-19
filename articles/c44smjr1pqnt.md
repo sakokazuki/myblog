@@ -1,23 +1,5 @@
 ---
 title: タッチセンサーキャリブレーションアルゴリズムについて
-date: 2020-1-25
-meta:
-  - name: description
-    content: タッチセンサーキャリブレーションアルゴリズムについて概要なんらかの事情でこういう感じのタッチセンサーのキャリブレーションをやらないといけなくなった際の足がかりとなる記事です。
-  - name: keywords
-    content: C,AirBar,キャリブレーション,数学
-  - name: og:title
-    content: タッチセンサーキャリブレーションアルゴリズムについて
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://images-na.ssl-images-amazon.com/images/I/61EErgl7%2B3L._AC_SX425_.jpg
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [C,AirBar,キャリブレーション,数学] 
 type: tech
 emoji: 💛

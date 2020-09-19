@@ -1,23 +1,5 @@
 ---
 title: web関係リンク集
-date: 2019-11-29
-meta:
-  - name: description
-    content: web関係リンク集pug変数にをHTMLタグとして書く
-  - name: keywords
-    content: Web
-  - name: og:title
-    content: web関係リンク集
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Web] 
 type: tech
 emoji: 💛

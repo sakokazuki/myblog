@@ -1,23 +1,5 @@
 ---
 title: ぷにぷにシェーダー【GLSL】
-date: 2020-1-25
-meta:
-  - name: description
-    content: ぷにぷにシェーダー【GLSL】マウスでカーソルをあてるとぷにっとするのをやりたいと言われて実験的にやってみたときのやつ。
-  - name: keywords
-    content: GLSL,Shader,Web
-  - name: og:title
-    content: ぷにぷにシェーダー【GLSL】
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_F45C885B615191A52EF0AD1A464C28F219D7D0E509CAF1EEBBBC13EA6058C814_1579929144112_2020-01-25_14-12-10.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [GLSL,Shader,Web] 
 type: tech
 emoji: 💛

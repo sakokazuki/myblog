@@ -1,23 +1,5 @@
 ---
 title: MetalのGPU処理負荷計測について(CPUについても軽く触れる)
-date: 2020-8-3
-meta:
-  - name: description
-    content: MetalのGPU処理負荷計測について(CPUについても軽く触れる)まず、CPUに関しての処理負荷計測は概ね以下のページを見ればできた。
-  - name: keywords
-    content: Metal,GraphicsPrograming
-  - name: og:title
-    content: MetalのGPU処理負荷計測について(CPUについても軽く触れる)
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_942E4D3B3B068B71EC63C5F83B949BABCC7A62B38BC5411181D9564C087C0B72_1596460271917_+2020-08-03+22.10.43.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Metal,GraphicsPrograming] 
 type: tech
 emoji: 💛

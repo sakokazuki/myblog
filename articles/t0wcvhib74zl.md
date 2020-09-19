@@ -1,23 +1,5 @@
 ---
 title: DropBoxPaperとVuePressでブログ運用
-date: 2019-11-31
-meta:
-  - name: description
-    content: DropBoxPaperとVuePressでブログ運用ブログを作ろうと思い、自分が気軽にブログを書き続けるにはどうすればいいのか考えると、自分で投稿の仕組みからつくるしかないということになり自分で運用することにした。
-  - name: keywords
-    content: Vue,Javascript,Web
-  - name: og:title
-    content: DropBoxPaperとVuePressでブログ運用
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_C9B73BF881BE8D80F5BA5CF564AE2E17DD6C9FCC0134961D23E81B9FD9AC4094_1575110971250_2019-11-30_19-49-08.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Vue,Javascript,Web] 
 type: tech
 emoji: 💛

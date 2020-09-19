@@ -1,23 +1,5 @@
 ---
 title: CMakeでvisualstudioのプロジェクトを作成する
-date: 2019-11-30
-meta:
-  - name: description
-    content: CMakeでvisualstudioのプロジェクトを作成する私的なvisualsutdioのプロジェクト/ソリューションをgithubで管理する際に当然ながらそのまま.slnなどをあげるだけでは動かなかったのでCMakeを使って生成することにした。(業界スタンダードっぽかったので)
-  - name: keywords
-    content: CMake,VisualStudio,C++
-  - name: og:title
-    content: CMakeでvisualstudioのプロジェクトを作成する
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [CMake,VisualStudio,C++] 
 type: tech
 emoji: 💛

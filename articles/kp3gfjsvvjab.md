@@ -1,23 +1,5 @@
 ---
 title: WSL2(Linux)でwebpackのwatchができない
-date: 2019-11-30
-meta:
-  - name: description
-    content: WSL2(Linux)でwebpackのwatchができない解決策webpack.config.jsに
-  - name: keywords
-    content: WSL2,Web
-  - name: og:title
-    content: WSL2(Linux)でwebpackのwatchができない
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [WSL2,Web] 
 type: tech
 emoji: 💛

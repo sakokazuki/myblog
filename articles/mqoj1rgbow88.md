@@ -1,23 +1,5 @@
 ---
 title: 【技術書】DirectX12 Programming Vol.1を読んだ
-date: 2020-1-26
-meta:
-  - name: description
-    content: 【技術書】DirectX12 Programming Vol.1を読んだすらりんラボさんの
-  - name: keywords
-    content: DirectX,Direct3D12,GraphicsPrograming
-  - name: og:title
-    content: 【技術書】DirectX12 Programming Vol.1を読んだ
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://booth.pximg.net/78995cd9-deab-405f-b6cd-f710a2b8d7d6/i/1286096/ef5e7fa6-6fe6-4c51-809d-22ed8bcaf7d3_base_resized.jpg
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [DirectX,Direct3D12,GraphicsPrograming] 
 type: tech
 emoji: 💛

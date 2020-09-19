@@ -1,23 +1,5 @@
 ---
 title: DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
-date: 2020-8-2
-meta:
-  - name: description
-    content: DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ個人的にDirectX12で理解を中途半端にしがちで未だ苦手意識のあるDescriptorHeapについて整理してみた。完全に理解しているわけではないので間違っていることもあるかもしれないが初学者が少しだけ理解に近づくには読む価値もあるかもしれない。
-  - name: keywords
-    content: DirectX,Direct3D12,GraphicsPrograming
-  - name: og:title
-    content: DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_32319F47CA7AF04C280992A0A69DEE54F609EFB857CBDA68FB253DDCB1E87908_1596379456631_+1-100.jpg
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [DirectX,Direct3D12,GraphicsPrograming] 
 type: tech
 emoji: 💛

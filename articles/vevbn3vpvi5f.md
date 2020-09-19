@@ -1,23 +1,5 @@
 ---
 title: Direct3D 12のsample 「ExecuteIndirect」を読む
-date: 2020-8-8
-meta:
-  - name: description
-    content: Direct3D 12のsample 「ExecuteIndirect」を読む半年前のメモを頼りにDirect3D 12のExecuteIndirectのサンプルを読んだ話を書きます。
-  - name: keywords
-    content: DirectX,Direct3D12,Execute Indirect,GraphicsPrograming
-  - name: og:title
-    content: Direct3D 12のsample 「ExecuteIndirect」を読む
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_F54D234B07E4DD84FCF58A3D65EF6EE988E0D6CF7E2A1E7A728CC0E7B3615774_1596866707234_2020-08-08_14-59-37.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [DirectX,Direct3D12,Execute Indirect,GraphicsPrograming] 
 type: tech
 emoji: 💛

@@ -1,23 +1,5 @@
 ---
 title: ブログつくりました
-date: 2019-11-01
-meta:
-  - name: description
-    content: ブログつくりましたいわゆる技術ブログというものをつくってみました。
-  - name: keywords
-    content: 雑記
-  - name: og:title
-    content: ブログつくりました
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [雑記] 
 type: tech
 emoji: 💛

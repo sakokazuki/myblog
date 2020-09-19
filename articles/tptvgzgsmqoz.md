@@ -1,23 +1,5 @@
 ---
 title: Unity向けdll作成及びC言語メモ
-date: 2019-11-29
-meta:
-  - name: description
-    content: Unity向けdll作成及びC言語メモこの記録について前職の仕事でc言語でダイナミックライブラリを作成してUnityで使いながらデバッグするということをしていたメモを掘り起こしたもの。
-  - name: keywords
-    content: Unity,C
-  - name: og:title
-    content: Unity向けdll作成及びC言語メモ
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Unity,C] 
 type: tech
 emoji: 💛

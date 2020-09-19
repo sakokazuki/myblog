@@ -1,23 +1,5 @@
 ---
 title: 久しぶりにThree.jsを触ったので簡単なメモ
-date: 2020-9-15
-meta:
-  - name: description
-    content: 久しぶりにThree.jsを触ったので簡単なメモ1年近くグラフィック系のプログラミングを専門とする会社で働いた後に久しぶりにThree.jsを使うと今まで意識しなかった部分でWebGLではあれができないとか、パフォーマンス向上のためにはこうしたほうがいいとか気づきがあったので簡単にメモをしていく。
-  - name: keywords
-    content: Three.js,javascript,GraphicsPrograming
-  - name: og:title
-    content: 久しぶりにThree.jsを触ったので簡単なメモ
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Three.js,javascript,GraphicsPrograming] 
 type: tech
 emoji: 💛

@@ -1,23 +1,5 @@
 ---
 title: Three.js(WebGL)のパフォーマンス計測方法など
-date: 2020-6-26
-meta:
-  - name: description
-    content: Three.js(WebGL)のパフォーマンス計測方法など
-  - name: keywords
-    content: WebGL,Three.js
-  - name: og:title
-    content: Three.js(WebGL)のパフォーマンス計測方法など
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_051486872875E3ED94037AEC88DB9C5A69FAA348E197C621BCEB05084CB2A532_1593163062849_2020-06-26_17-57-22.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [WebGL,Three.js] 
 type: tech
 emoji: 💛

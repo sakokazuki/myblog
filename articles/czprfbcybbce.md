@@ -1,23 +1,5 @@
 ---
 title: 今度こそ理解するプロジェクション変換行列のつくりかた
-date: 2020-3-24
-meta:
-  - name: description
-    content: 今度こそ理解するプロジェクション変換行列のつくりかたはじめに3Dグラフィックスプログラミングをするにあたり、Model/View/Projectionの行列を使用して様々な座標空間上で物事を考えることが求められます。その中でも特にProjection行列(記事内では射影行列とすることもある)の求め方が一番良くわからず理解に苦しんだので自分なりの理解の仕方をメモしておきます。
-  - name: keywords
-    content: DirectX,Direct3D12,OpenGL,GraphicsPrograming
-  - name: og:title
-    content: 今度こそ理解するプロジェクション変換行列のつくりかた
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_6BD174529CAAE6EED12BC199E1ED229B80BC6BF86BB0479D8177908B239E7024_1584870335094__01.jpg
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [DirectX,Direct3D12,OpenGL,GraphicsPrograming] 
 type: tech
 emoji: 💛

@@ -1,23 +1,5 @@
 ---
 title: Windowsでgzip圧縮したファイルをwebで使う
-date: 2020-9-16
-meta:
-  - name: description
-    content: Windowsでgzip圧縮したファイルをwebで使うよくあるApacheのサーバー前提。
-  - name: keywords
-    content: web
-  - name: og:title
-    content: Windowsでgzip圧縮したファイルをwebで使う
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [web] 
 type: tech
 emoji: 💛

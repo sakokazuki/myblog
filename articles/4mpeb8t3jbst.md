@@ -1,23 +1,5 @@
 ---
 title: ShaderPlaygroundというサイトがすごい
-date: 2020-6-6
-meta:
-  - name: description
-    content: ShaderPlaygroundというサイトがすごいこのサイト。
-  - name: keywords
-    content: Shader,GraphicsPrograming
-  - name: og:title
-    content: ShaderPlaygroundというサイトがすごい
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: https://paper-attachments.dropbox.com/s_2133982CCABEB6536F2400CF5406881FEECC0A4D712075EDC6DFA10AB0387F33_1591466646258_2020-06-07_03-03-38.png
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [Shader,GraphicsPrograming] 
 type: tech
 emoji: 💛

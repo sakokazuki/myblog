@@ -1,23 +1,5 @@
 ---
 title: Blenderでgltfをコレクションごとに一括でエクスポートする方法
-date: 2020-9-17
-meta:
-  - name: description
-    content: Blenderでgltfをコレクションごとに一括でエクスポートする方法タイトルのことを調べていたらいい感じのスクリプトが見つかったので共有します。
-  - name: keywords
-    content: blender
-  - name: og:title
-    content: Blenderでgltfをコレクションごとに一括でエクスポートする方法
-  - name: og:site_name
-    content: びわの家ブログ
-  - name: og:url
-    content: https://biwanoie.tokyo
-  - name: og:image
-    content: 
-  - name: og:locale
-    content: ja_JP
-  - name: twitter:card
-    content: summary_large_image
 topics: [blender] 
 type: tech
 emoji: 💛
