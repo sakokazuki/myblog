@@ -21,6 +21,7 @@ meta:
 topics: [C,AirBar,キャリブレーション,数学] 
 type: tech
 emoji: 💛
+published: true
 ---
 
 ## 概要

@@ -163,7 +163,8 @@ const request = async (article) => {
   const zennTopics = article.tags;
   const zennType = (article.type == "idea") ? "idea" : "tech" // デフォルトでtech zennTypeにideaを指定したときのみidea
   const zennEmoji = "💛"
-  const zennPublish = (article.zenn == "false") ? false : true // zennで公開するかしないか 
+  const zennPublish = (article.zenn == false) ? false : true // zennで公開するかしないか 
+  console.log(article.zenn)
 
   const filedata = `---
 title: ${title}
@@ -188,6 +189,7 @@ meta:
 topics: [${zennTopics}] 
 type: ${zennType}
 emoji: ${zennEmoji}
+published: ${zennPublish}
 ---
 ${md}`
   await updateFile(article.id, filedata);

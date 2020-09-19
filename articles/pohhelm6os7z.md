@@ -21,6 +21,7 @@ meta:
 topics: [Javascript,Web] 
 type: tech
 emoji: 💛
+published: true
 ---
 この方法ならIE11でみても動画をパスでマスクすることができるというメモ。
 

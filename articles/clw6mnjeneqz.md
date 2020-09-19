@@ -21,6 +21,7 @@ meta:
 topics: [雑記] 
 type: tech
 emoji: 💛
+published: false
 ---
 いわゆる技術ブログというものをつくってみました。
 

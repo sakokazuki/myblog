@@ -21,6 +21,7 @@ meta:
 topics: [Metal,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 まず、CPUに関しての処理負荷計測は概ね以下のページを見ればできた。
 [【Unity】XCodeでCPUの処理負荷を計測する](https://light11.hatenadiary.com/entry/2019/10/20/032721)

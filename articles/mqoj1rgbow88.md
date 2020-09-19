@@ -21,6 +21,7 @@ meta:
 topics: [DirectX,Direct3D12,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 すらりんラボさんの
 「DirectX12 Programming Vol.1」を読んだ。

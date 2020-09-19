@@ -21,6 +21,7 @@ meta:
 topics: [Shader,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 このサイト。
 http://shader-playground.timjones.io/

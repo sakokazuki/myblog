@@ -21,6 +21,7 @@ meta:
 topics: [Wordpress,Web,php,ReCAPTHCA] 
 type: tech
 emoji: 💛
+published: true
 ---
 reCPATHCA認証は2020年1月現在v3という、ユーザーのチェックが不要のシステムがあり、これはGoogleが自動でbot入力かどうか判別してくれるというもの。
 詳しくは → https://webmaster-ja.googleblog.com/2018/10/introducing-recaptcha-v3-new-way-to.html

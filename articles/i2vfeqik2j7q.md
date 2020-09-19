@@ -21,6 +21,7 @@ meta:
 topics: [CMake,VisualStudio,C++] 
 type: tech
 emoji: 💛
+published: true
 ---
 私的なvisualsutdioのプロジェクト/ソリューションをgithubで管理する際に当然ながらそのまま.slnなどをあげるだけでは動かなかったのでCMakeを使って生成することにした。(業界スタンダードっぽかったので)
 

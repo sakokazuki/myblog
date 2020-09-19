@@ -21,6 +21,7 @@ meta:
 topics: [DirectX,Direct3D12,Execute Indirect,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 半年前のメモを頼りにDirect3D 12のExecuteIndirectのサンプルを読んだ話を書きます。
 Sampleはこれ。https://github.com/microsoft/DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12ExecuteIndirect

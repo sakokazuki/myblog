@@ -21,6 +21,7 @@ meta:
 topics: [DirectX,Direct3D12,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 個人的にDirectX12で理解を中途半端にしがちで未だ苦手意識のあるDescriptorHeapについて整理してみた。完全に理解しているわけではないので間違っていることもあるかもしれないが初学者が少しだけ理解に近づくには読む価値もあるかもしれない。
 

@@ -21,6 +21,7 @@ meta:
 topics: [DirectX,Direct3D12,OpenGL,GraphicsPrograming] 
 type: tech
 emoji: 💛
+published: true
 ---
 
 ## はじめに

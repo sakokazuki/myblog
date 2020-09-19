@@ -21,6 +21,7 @@ meta:
 topics: [WebGL,Three.js] 
 type: tech
 emoji: 💛
+published: true
 ---
 
 ![](https://paper-attachments.dropbox.com/s_051486872875E3ED94037AEC88DB9C5A69FAA348E197C621BCEB05084CB2A532_1593163062849_2020-06-26_17-57-22.png)

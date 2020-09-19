@@ -21,6 +21,7 @@ meta:
 topics: [blender] 
 type: tech
 emoji: 💛
+published: true
 ---
 タイトルのことを調べていたらいい感じのスクリプトが見つかったので共有します。
 

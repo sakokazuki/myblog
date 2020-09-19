@@ -21,6 +21,7 @@ meta:
 topics: [web] 
 type: tech
 emoji: 💛
+published: true
 ---
 よくあるApacheのサーバー前提。
 ※nginxでも同じようなことはしないといけないがファイルを作成部分は参考になる
