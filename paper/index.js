@@ -48,7 +48,7 @@ const updateFile = async (id, data) => {
 }
 
 const updateZennFile = async(id, data)=>{
-  const dir = path.join(__dirname, "../zenn/articles");
+  const dir = path.join(__dirname, "../articles");
   
   const isExistsDir = await isExists(dir).catch(err => {
     throw err;
@@ -134,7 +134,7 @@ const render_plain = function () {
 
 /*---------------
   request
------------------*/
+    -----------------*/
 const request = async (article) => {
   const res = await http.post(apiEndpoint, null, {
     headers: {
@@ -163,6 +163,7 @@ const request = async (article) => {
   const zennTopics = article.tags;
   const zennType = (article.type == "idea") ? "idea" : "tech" // デフォルトでtech zennTypeにideaを指定したときのみidea
   const zennEmoji = "💛"
+  const zennPublish = (article.zenn == "false") ? false : true // zennで公開するかしないか 
 
   const filedata = `---
 title: ${title}
@@ -207,7 +208,7 @@ const matchFile = async (match_str) => {
 const clean = async () => {
   //"blog/"以下のファイルを列挙(.vuepressはドットファイルだから？無視されてる)"
   const files = await matchFile("../blog/*");
-  const zennFiles = await matchFile("../zenn/articles/*.*");
+  const zennFiles = await matchFile("../articles/*.*");
   const deleteTarget = files.concat(zennFiles);
   
   //"index.md"以外は削除

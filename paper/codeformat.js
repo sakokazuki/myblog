@@ -227,7 +227,7 @@ function walkSync(dir, suffix) {
     }
   }
 
-  const zennPath = path.join(".", "zenn", "articles");
+  const zennPath = path.join(".", "articles");
   const zennFiles = walkSync(zennPath);
   let filst = false
   for await (const file of zennFiles){

@@ -198,6 +198,7 @@ module.exports = {
     {
       "id": "cLW6MNjEneqZAgCzqefz7", //ブログ作りました
       "date": "2019-11-01",
+      "zenn": false,
       "tags": [
         "雑記",
       ],
