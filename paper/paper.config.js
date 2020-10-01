@@ -1,7 +1,7 @@
 module.exports = {
   articles: [
     {
-      "id": "o2o1j9ZACEq4IbZrrcQqm" // three.jsのデフォルトマテリアル拡張
+      "id": "o2o1j9ZACEq4IbZrrcQqm", // three.jsのデフォルトマテリアル拡張
       "date": "2020-10-1",
       "tags": [
         "web",
