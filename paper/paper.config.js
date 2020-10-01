@@ -1,6 +1,16 @@
 module.exports = {
   articles: [
     {
+      "id": "o2o1j9ZACEq4IbZrrcQqm" // three.jsのデフォルトマテリアル拡張
+      "date": "2020-10-1",
+      "tags": [
+        "web",
+        "three.js",
+        "glsl",
+        "webGL",
+      ],
+    },
+    {
       "id": "kiYHZRcvfrdC7uSN3BKxr", // blenderで一括gltfエクスポート’
       "date": "2020-9-17",
       "tags": [
@@ -25,7 +35,7 @@ module.exports = {
       "id": "cw5GMnNsggXevCa1RLjMR", //久しぶりにThree.jsを触ったので簡単なメモ
       "date": "2020-9-15",
       "tags": [
-        "Three.js",
+        "three.js",
         "javascript",
         "GraphicsPrograming"
       ],
