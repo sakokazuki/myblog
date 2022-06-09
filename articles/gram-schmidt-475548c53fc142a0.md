@@ -1,6 +1,6 @@
 ---
 title: グラム・シュミットの正規直交化法
-topics: [Math]
+topics: [Math,数学]
 type: tech
 emoji: 💛
 published: true

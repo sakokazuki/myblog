@@ -1,6 +1,6 @@
 ---
 title: MetalのGPU処理負荷計測について(CPUについても軽く触れる)
-topics: [Metal,GraphicsPrograming] 
+topics: [Metal]
 type: tech
 emoji: 💛
 published: true
@@ -37,7 +37,7 @@ GPUについては実行中に下の方のカメラマークを押せばその�
 ![](https://paper-attachments.dropbox.com/s_942E4D3B3B068B71EC63C5F83B949BABCC7A62B38BC5411181D9564C087C0B72_1596460755364_+2020-08-03+22.15.21.png)
 
 
- 
+
 Performanceを開くと、fragment shaderのtimeが66%もしめていることがわかる。fragment shaderの小さい矢印の部分(赤でかこった囲った部分)をクリックするとシェーダーのコードが開き行ごとにどのくらいの処理がかかっているかどうかが確認できる。
 
 ![](https://paper-attachments.dropbox.com/s_942E4D3B3B068B71EC63C5F83B949BABCC7A62B38BC5411181D9564C087C0B72_1596461639457_+2020-08-03+22.18.38.png)
@@ -54,4 +54,3 @@ Performanceを開くと、fragment shaderのtimeが66%もしめていること�
 あとは他の手段として、Xcode → Open Developer tool → InstrumentsにMetal GPU Traceというものがありそれでも色々調査できるのだがまだきちんと使いこなせていないので便利な使い方が見つかればまた書く。
 とりあえず公式のドキュメントをメモ↓
 https://developer.apple.com/documentation/metal/using_metal_system_trace_in_instruments_to_profile_your_app
-

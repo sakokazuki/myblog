@@ -1,8 +1,9 @@
 ---
 title: Scalable Ambient Obscurance
-topics: [GraphicsPrograming]
+topics: [cg]
 type: tech
-published: false
+emoji: 💛
+published: true
 ---
 SSAOの手法の一つ。
 
@@ -39,8 +40,7 @@ Alchemy AOをベースにパフォーマンスの改善を行ったもの。
 
 ## 深度バッファからの復元
 
-![1000.png](/images/Scalable%20Ambient%20Obscurance%2021d63ffca97d4625914f07c74bf87842/1000.png)
-![](/images/hoge/1000.png)
+![](/images/sao/1000.png)
 
 
 【Zd】world space z

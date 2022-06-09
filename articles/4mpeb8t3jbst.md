@@ -1,6 +1,6 @@
 ---
 title: ShaderPlaygroundというサイトがすごい
-topics: [Shader,GraphicsPrograming] 
+topics: [Shader]
 type: tech
 emoji: 💛
 published: true
@@ -21,4 +21,3 @@ http://shader-playground.timjones.io/
 面倒なのでコードは載せないがマルチプラットフォームでシェーダーを書かないと行けない場合や、HLSLでは行列の掛け算のときにmul()を使うけどGLSLではそういうのなかったんだっけ？とかGLSLでregisterってbindingだけど書き方忘れたとか各言語で微妙に違う部分をかんたんに確かめることができる。もちろんドキュメント等を読めばわかることだがなかなか骨が折れるのでとりあえず変換してみて回答例？のようなものをみてみるという使い方ができる！便利！
 
 他にもおそらく有用な使い方はあると思うし今後も使っていこう！
-

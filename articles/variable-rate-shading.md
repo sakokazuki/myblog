@@ -1,6 +1,6 @@
 ---
 title: Variable Rate Shading
-topics: [DirectX,Direct3D12,GraphicsPrograming]
+topics: [Direct3D,DirectXDirect3D12]
 type: tech
 emoji: 💛
 published: true

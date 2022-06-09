@@ -1,6 +1,6 @@
 ---
 title: オクルージョンクエリとPrediactedRendering
-topics: [GraphicsPrograming]
+topics: [cg]
 type: tech
 emoji: 💛
 published: true

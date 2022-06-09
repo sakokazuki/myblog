@@ -1,6 +1,6 @@
 ---
 title: DirectX12のDescriptorHeapとかRootSignatureとかその周辺のメモ
-topics: [DirectX,Direct3D12,GraphicsPrograming] 
+topics: [Direct3D,DirectXDirect3D12]
 type: tech
 emoji: 💛
 published: true
@@ -190,7 +190,7 @@ rootParameters[0].InitAsDescriptorTable(1, &ranges[0], D3D12_SHADER_VISIBILITY_P
     {
     InitAsDescriptorTable(*this, numDescriptorRanges, pDescriptorRanges, visibility);
     }
-        
+
 
 
 ここで思い出したいのが、一つ前のパートでSetGraphicsRootDescriptorTableでRootParameterIndexの0にディスクリプタヒープを指定するというコマンドを積んだことである。
@@ -233,5 +233,3 @@ rootParameters[0].InitAsDescriptorTable(1, &ranges[0], D3D12_SHADER_VISIBILITY_P
 - DescriptorTableには1つのディスクリプタを設定する
 - なので2つヒープがあった場合はテーブルも2つ
 - テーブルが2つということはRootParameterIndexの0にひとつめ、1にふたつめといった設定が必要になる
-
-

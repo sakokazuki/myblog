@@ -1,6 +1,6 @@
 ---
 title: 今度こそ理解するプロジェクション変換行列のつくりかた
-topics: [DirectX,Direct3D12,OpenGL,GraphicsPrograming] 
+topics: [Direct3D,DirectXDirect3D12,OpenGL]
 type: tech
 emoji: 💛
 published: true
@@ -339,4 +339,3 @@ https://github.com/g-truc/glm/blob/0.9.5/glm/gtc/matrix_transform.inl#L186
 https://docs.microsoft.com/ja-jp/windows/win32/direct3d9/d3dxmatrixperspectiveoffcenterlh
 右手系(座標系の変換をする)
 https://docs.microsoft.com/ja-jp/windows/win32/direct3d9/d3dxmatrixperspectiveoffcenterrh
-

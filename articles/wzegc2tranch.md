@@ -1,6 +1,6 @@
 ---
 title: OpenGLでNearFarに-1を掛ける理由について考察
-topics: [DirectX,Direct3D12,OpenGL,GraphicsPrograming] 
+topics: [Direct3D,DirectXDirect3D12,OpenGL]
 type: tech
 emoji: 💛
 published: true
@@ -34,4 +34,3 @@ published: true
 
 
 マルチプラットフォームであれば確かにどちらかに合わせる必要があるがglmはそういうライブラリではないが(OpenGL Mathematicsだし)、なぜかデフォルトで反転させている。これは考察だが、単純にXを右、Yを上とする(ViewPortでいうと左下が0)のに慣れてしまっているから？Yが下向き(もしくはXが左向き)で良ければそのままでも良さそうではある。
-

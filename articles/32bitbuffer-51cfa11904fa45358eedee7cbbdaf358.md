@@ -1,6 +1,6 @@
 ---
 title: 32bitのbufferに10bit,10bit,10bitでパックされたintを取り出す
-topics: [Shader,GLSL,GraphicsPrograming]
+topics: [Shader,GLSL]
 type: tech
 emoji: 💛
 published: true

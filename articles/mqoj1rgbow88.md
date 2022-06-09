@@ -1,6 +1,6 @@
 ---
 title: 【技術書】DirectX12 Programming Vol.1を読んだ
-topics: [DirectX,Direct3D12,GraphicsPrograming] 
+topics: [Direct3D,DirectXDirect3D12]
 type: tech
 emoji: 💛
 published: true
@@ -80,7 +80,7 @@ CPUとGPUは非同期に動いていて、命令をコマンドバッファに�
 
 
 - CreateCommittedResource
-- CreatePlacedResource 
+- CreatePlacedResource
 - CreateReservedResource
 
 この本ではCreateCommittedResource以外取り扱わないので余裕があれば調べる
@@ -188,5 +188,3 @@ UAV: Unordered Access View
 ## 14,15章
 
 13章までの内容で満足してしまったので読んでなくて、いつか読む。
-
-

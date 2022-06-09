@@ -1,6 +1,6 @@
 ---
 title: 久しぶりにThree.jsを触ったので簡単なメモ
-topics: [Three.js,javascript,GraphicsPrograming] 
+topics: [Three.js,javascript]
 type: tech
 emoji: 💛
 published: true
@@ -48,7 +48,3 @@ MSAA: ハードウェアで実行されるアンチエイリアス(three.jsだ�
 srgbフォーマットのフレームバッファを使うにはWebGLRenderer.outputEncodingにTHREE.sRGBEncodingを設定するなどでできるが、先ほどと同じようにオフスクリーン描画などが入ると有効にならない。対処としては自分でガンマ補正するパスを追加する。
 
 参考) https://discourse.threejs.org/t/srgb-encoding-as-a-postprocess-pass/12278/2
-
-
-
-

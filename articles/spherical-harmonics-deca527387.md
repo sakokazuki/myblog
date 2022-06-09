@@ -1,9 +1,9 @@
 ---
 title: 球面調和関数(Spherical Harmonics)とCGへの応用
-topics: [Math,GraphicsPrograming]
+topics: [Math]
 type: tech
 emoji: 💛
-published: false
+published: true
 ---
 
 ## 参考リンク集
@@ -34,7 +34,7 @@ published: false
 
 球面調和関数でググったときに頻繁に出てくる物体はフーリエ級数展開でsin,cos関数で近似できるというときのsin,cos"関数"と概念で、θとΦの関数はこのぷにぷにの組み合わせて近似できるということである。このぷにぷに関数のことを球面調和関数と呼び、関数をぷにぷにで近似する形に展開することを球面調和関数展開(SH展開)という。
 
-![[https://en.wikipedia.org/wiki/Spherical_harmonics](https://en.wikipedia.org/wiki/Spherical_harmonics) より引用](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/Spherical_Harmonics.png)
+![[https://en.wikipedia.org/wiki/Spherical_harmonics](https://en.wikipedia.org/wiki/Spherical_harmonics) より引用](/images/sh/Spherical_Harmonics.png)
 
 [https://en.wikipedia.org/wiki/Spherical_harmonics](https://en.wikipedia.org/wiki/Spherical_harmonics) より引用
 
@@ -42,33 +42,33 @@ published: false
 
 テイラー展開においてf(x)という複雑な関数があったとき、xに任意の係数を代入して
 
-![image010.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image010.gif)
+![image010.gif](/images/sh/image010.gif)
 
 の形のa0,a1..を求めることを展開と呼び、そのときののxを展開係数という。ちなみにテイラー展開を係数0で展開することをマクローリン展開と呼ぶ。
 
 展開と展開係数という概念は他の展開でも変わらず、フーリエ級数展開ではc, sが展開係数である。
 
-![image052.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image052.gif)
+![image052.gif](/images/sh/image052.gif)
 
 また、f(x)がわかっている場合のフーリエ級数展開の展開係数は以下によって求まる。
 
-![image070.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image070.gif)
+![image070.gif](/images/sh/image070.gif)
 
-![image070.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image070%201.gif)
+![image070.gif](/images/sh/image0701.gif)
 
 このc0, c1, c2.../s0, s1, s2...を任意の項数だけフーリエ級数展開に代入すればxに関する関数として近似値が解ける。
 
 そして、球面調和関数によって展開された関数は以下のようにあらわすことができ(cが展開係数)
 
-![image112.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image112.gif)
+![image112.gif](/images/sh/image112.gif)
 
 展開係数c はこのようになる
 
-![image114.gif](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/image114.gif)
+![image114.gif](/images/sh/image114.gif)
 
 展開型はこっちのほうがよく見るかもしれない。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000.png)
+![1000.png](/images/sh/1000.png)
 
 ※数式すべて [https://t-pot.com/program/88_SH/index.html、](https://t-pot.com/program/88_SH/index.html)[http://www.ioa.s.u-tokyo.ac.jp/~kkohno/seminar2/?plugin=attach&refer=H28_KadaiKenkyu&openfile=SphericalHarmonics.pdf](http://www.ioa.s.u-tokyo.ac.jp/~kkohno/seminar2/?plugin=attach&refer=H28_KadaiKenkyu&openfile=SphericalHarmonics.pdf) より引用
 
@@ -78,40 +78,40 @@ published: false
 
 ある場所の法線nの照度は以下のように表すことができる。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%201.png)
+![1000.png](/images/sh/10001.png)
 
 L(ω):入射光、n・ω: コサイン項としてそれぞれを半休積分するとn方向を向いているときの放射照度がわかる。
 
 入射光の角度ωは直行座標(x, y, z)でも表せるが(θ, Φ)の球面座標で表すことができる。
 なので、入射角ωに対するL, EはLlm, Elmを球面調和関数展開の基底として、以下のように表現できる。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%202.png)
+![1000.png](/images/sh/10002.png)
 
 またn・ωも球面座標関数展開系で表すことができるが向きの成分Φは必要ないので常に0とし、n・ω=Aとすると
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%203.png)
+![1000.png](/images/sh/10003.png)
 
 となる。
 
 (n・ω)はΦ方向を考えなくていいのでΦ=0とした球面調和関数の展開となる。以下の図は
 
-![[http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html](http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html)](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%204.png)
+![[http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html](http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html)](/images/sh/10004.png)
 
 [http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html](http://physics.thick.jp/Physical_Mathematics/Section3/3-21.html)
 
 そして突然出てくる以下の式
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%205.png)
+![1000.png](/images/sh/10005.png)
 
 どうやら[論文](https://cseweb.ucsd.edu/~ravir/papers/invlamb/josa.pdf)によるとElmは(5)のように定義ができるらしい。読んでないので理解していない。
 
 Llm以外の部分を定数に置き換えて
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%206.png)
+![1000.png](/images/sh/10006.png)
 
 (4)式にもどると以下のような式になる。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%207.png)
+![1000.png](/images/sh/10007.png)
 
 これは法線n(x, y, z)=(θ, Φ)の近似関数である。(7)のlを0~∞,ｍを-m~mで加算していけば実際の照度に近づいていく。
 
@@ -119,11 +119,11 @@ Llm以外の部分を定数に置き換えて
 
 (4)のL(θ,Φ)を変換するとLlmは論文式(10)となることは理解できる。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%208.png)
+![1000.png](/images/sh/10008.png)
 
 よって、
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%209.png)
+![1000.png](/images/sh/10009.png)
 
 L(θ, Φ)をキューブマップから得て、Ylm(θ, Φ)の固定値、sinθを積分したものをLlmで事前に計算しておき、シェーディング時に(7)で照度を復元するイメージが湧くのではないか。この計算でこんがらがる部分はYml(θ, Φ)がLlmとE(θ,Φ)の二箇所で出てくるところである。このYml(θ, Φ)を頻繁にSH Basis(基底)などと記述されることが多い。
 
@@ -137,11 +137,11 @@ L(θ, Φ)をキューブマップから得て、Ylm(θ, Φ)の固定値、sinθ�
 
 ぷにぷにを
 
-![[https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/Spherical_Harmonics%201.png)
+![[https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)](/images/sh/Spherical_Harmonics1.png)
 
 [https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)
 
-![[https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%2010.png)
+![[https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)](/images/sh/100010.png)
 
 [https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)
 
@@ -172,11 +172,11 @@ L(θ, Φ)をキューブマップから得て、Ylm(θ, Φ)の固定値、sinθ�
 
 の0.282095などの数字は[ここ](https://graphics.stanford.edu/papers/envmap/envmap.pdf)の(3)に計算済みの値が載っている
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%2011.png)
+![1000.png](/images/sh/100011.png)
 
 この照度マップの近似をシェーディング時に射影して照度を求めるサンプルがThree.jsにはある。今は前段の概念編でいうところのLlmが求まったので(7)式のようにÂl, Ylm(θ, Φ)をかけて照度を求めようとしている段階。
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%2012.png)
+![1000.png](/images/sh/100012.png)
 
 これはThree.jsのサンプルではLlmをSH係数としてユニフォームでシェーダーに渡して、シェーディング時に照度計算と畳込み(加算)を行っている。
 
@@ -205,7 +205,7 @@ vec3 shGetIrradianceAt( in vec3 normal, in vec3 shCoefficients[ 9 ] ) {
 
 このコードの0.886227などの数字はYlm * Âlの値である。
 
-![[https://graphics.stanford.edu/papers/envmap/envmap.pdf](https://graphics.stanford.edu/papers/envmap/envmap.pdf)](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%2013.png)
+![[https://graphics.stanford.edu/papers/envmap/envmap.pdf](https://graphics.stanford.edu/papers/envmap/envmap.pdf)](/images/sh/100013.png)
 
 [https://graphics.stanford.edu/papers/envmap/envmap.pdf](https://graphics.stanford.edu/papers/envmap/envmap.pdf)
 
@@ -220,7 +220,7 @@ vec3 shGetIrradianceAt( in vec3 normal, in vec3 shCoefficients[ 9 ] ) {
 
 ([https://cseweb.ucsd.edu/~ravir/papers/invlamb/josa.pdf](https://cseweb.ucsd.edu/~ravir/papers/invlamb/josa.pdf)を読む)
 
-![1000.png](%E7%90%83%E9%9D%A2%E8%AA%BF%E5%92%8C%E9%96%A2%E6%95%B0(Spherical%20Harmonics)%E3%81%A8CG%E3%81%B8%E3%81%AE%E5%BF%9C%E7%94%A8%201deca52738734777a73e6c87b0efa92f/1000%2014.png)
+![1000.png](/images/sh/100014.png)
 
 [https://www.ppsloan.org/publications/StupidSH36.pdf](https://www.ppsloan.org/publications/StupidSH36.pdf)
 

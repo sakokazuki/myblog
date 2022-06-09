@@ -1,6 +1,6 @@
 ---
 title: タッチセンサーキャリブレーションアルゴリズムについて
-topics: [C,AirBar,キャリブレーション,数学] 
+topics: [C,数学]
 type: tech
 emoji: 💛
 published: true
@@ -66,4 +66,3 @@ https://www.analog.com/media/en/technical-documentation/application-notes/AN-102
     - 行列を連立方程式の形にした場合、消去法が使える
     - こういうような https://oguemon.com/study/linear-algebra/elimination/
     - 論文中では階段行列とかは出てこなくてあくまで式変形してるだけ
-
