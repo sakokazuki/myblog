@@ -1,6 +1,6 @@
 ---
 title: Direct3D 12のsample 「ExecuteIndirect」を読む
-topics: [DirectX,Direct3D12,Execute Indirect,GraphicsPrograming] 
+topics: [DirectX,Direct3D12,ExecuteIndirect,GraphicsPrograming]
 type: tech
 emoji: 💛
 published: true
@@ -147,7 +147,7 @@ cbuffer SceneConstantBuffer : register(b0)
 
 ここまででほとんどExecuteIndirectの説明は終わったが最後に第5引数のpCountBufferについて触れる。これは名前のとおりコマンドの数が格納されているバッファであるが、指定しないと第2引数のMaxCommandCountが使われ、指定があると指定したバッファの値を使うことになる。
 
-今回のサンプルだとカリングが有効の時に使用しているが、若干混乱するのがpArgumentBufferと同じバッファを使用していることである。よくコードを読めばわかるがArgumentBuffer用のバッファオブジェクトのサイズが(ArgumentBufferのサイズ) + (UINT)となっておりバッファの一番最後にCommandCountを設定するための分が確保されており、第6引数のオフセットを使って同じバッファ内の一番最後の値を使うように設定されているのである。 
+今回のサンプルだとカリングが有効の時に使用しているが、若干混乱するのがpArgumentBufferと同じバッファを使用していることである。よくコードを読めばわかるがArgumentBuffer用のバッファオブジェクトのサイズが(ArgumentBufferのサイズ) + (UINT)となっておりバッファの一番最後にCommandCountを設定するための分が確保されており、第6引数のオフセットを使って同じバッファ内の一番最後の値を使うように設定されているのである。
 
 思ったより長くなってしまったがExecuteIndirect命令とは
 
@@ -221,8 +221,3 @@ x: -0.5~0.5のみ描画するとして…
 ## 描画処理について
 
 描画処理についてはほとんど触れることがないが、先ほどのコンピュート処理で用意したリソースをpArgumentBufferに指定し、pCountBufferも同じリソースを使い、オフセットを指定する。(750行目)
-
-
-
-
-
