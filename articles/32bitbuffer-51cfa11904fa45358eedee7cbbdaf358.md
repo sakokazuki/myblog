@@ -2,7 +2,7 @@
 title: 32bitのbufferに10bit,10bit,10bitでパックされたintを取り出す
 topics: [Shader,GLSL]
 type: tech
-emoji: 💛
+emoji: 🍎
 published: true
 ---
 

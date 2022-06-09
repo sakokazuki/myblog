@@ -2,7 +2,7 @@
 title: 球面調和関数(Spherical Harmonics)とCGへの応用
 topics: [Math]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 

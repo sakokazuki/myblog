@@ -2,7 +2,7 @@
 title: Direct3D 12のsample 「ExecuteIndirect」を読む
 topics: [Direct3D,DirectXDirect3D12,ExecuteIndirect]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 半年前のメモを頼りにDirect3D 12のExecuteIndirectのサンプルを読んだ話を書きます。

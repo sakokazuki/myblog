@@ -2,7 +2,7 @@
 title: オクルージョンクエリとPrediactedRendering
 topics: [cg]
 type: tech
-emoji: 💛
+emoji: 🔍
 published: true
 ---
 

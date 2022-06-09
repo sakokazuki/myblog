@@ -2,7 +2,7 @@
 title: 今度こそ理解するプロジェクション変換行列のつくりかた
 topics: [Direct3D,DirectXDirect3D12,OpenGL]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 

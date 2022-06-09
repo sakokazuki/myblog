@@ -2,7 +2,7 @@
 title: グラム・シュミットの正規直交化法
 topics: [Math,数学]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 

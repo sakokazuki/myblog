@@ -2,7 +2,7 @@
 title: UE4でビルド済みのシェーダーコードを手っ取り早く知る方法
 topics: [UnrealEngine4,UE4,Shader]
 type: tech
-emoji: 💛
+emoji: 📝
 published: true
 ---
 

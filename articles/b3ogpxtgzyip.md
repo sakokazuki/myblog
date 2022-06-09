@@ -2,7 +2,7 @@
 title: MetalのGPU処理負荷計測について(CPUについても軽く触れる)
 topics: [Metal]
 type: tech
-emoji: 💛
+emoji: 📝
 published: true
 ---
 まず、CPUに関しての処理負荷計測は概ね以下のページを見ればできた。

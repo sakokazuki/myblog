@@ -1,8 +1,8 @@
 ---
 title: Three.js(WebGL)のパフォーマンス計測方法など
-topics: [WebGL,Three.js] 
+topics: [WebGL,Three.js]
 type: tech
-emoji: 💛
+emoji: 📝
 published: true
 ---
 
@@ -37,5 +37,3 @@ https://chrome.google.com/webstore/detail/spectorjs/denbgaamihkadbghdceggmchnflm
 
 ちなみにWebGLってRenderDocでもキャプチャできるらしい
 参考) https://qiita.com/ukonpower/items/134bdf0c7ebde2a5d547
-
-

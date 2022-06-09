@@ -2,7 +2,7 @@
 title: MetalでのTextureViewについて
 topics: [Metal]
 type: tech
-emoji: 💛
+emoji: 📝
 published: true
 ---
 

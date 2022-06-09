@@ -2,7 +2,7 @@
 title: 久しぶりにThree.jsを触ったので簡単なメモ
 topics: [Three.js,javascript]
 type: tech
-emoji: 💛
+emoji: 📝
 published: true
 ---
 1年近くグラフィック系のプログラミングを専門とする会社で働いた後に久しぶりにThree.jsを使うと今まで意識しなかった部分でWebGLではあれができないとか、パフォーマンス向上のためにはこうしたほうがいいとか気づきがあったので簡単にメモをしていく。

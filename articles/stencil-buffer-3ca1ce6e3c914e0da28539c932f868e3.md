@@ -2,7 +2,7 @@
 title: ステンシルバッファ
 topics: [cg]
 type: tech
-emoji: 💛
+emoji: 🔍
 published: true
 ---
 

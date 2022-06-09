@@ -2,7 +2,7 @@
 title: OpenGLでNearFarに-1を掛ける理由について考察
 topics: [Direct3D,DirectXDirect3D12,OpenGL]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 プロジェクション行列を考えるにあたり、なぜかOpenGLはNearとFarに-1を掛けて計算するのにどうして？？と疑問が湧いた。これらはOpenGLが右手系であることが主な理由だと思い、右手系と左手系を比較しながらかんたんに考察する。

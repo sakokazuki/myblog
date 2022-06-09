@@ -2,7 +2,7 @@
 title: Scalable Ambient Obscurance
 topics: [cg]
 type: tech
-emoji: 💛
+emoji: 🧊
 published: true
 ---
 SSAOの手法の一つ。
